@@ -1,11 +1,18 @@
+// $(function(){//document ready
+//   $('button').click(function(){ //listens for click on button
+//     var color = $(this).data('color');//retrieves color data and stores it in a variable
+//     var $block = $('<div class="color-cube '+color+'"></div')//creates div with class of the color value
+//     $('.container').append($block);//appends div to DOM
+//     var counter = parseInt(($('#'+color).text())) + 1;//sets counter to text currently on DOM and increments it
+//     $('#'+color).text(counter);//updates the text on the DOM
+//   })
+// });
+
+//solution without variables
 $(function(){//document ready
   $('button').click(function(){ //listens for click on button
-    var color = $(this).data('color');//retrieves color data and stores it in a variable
-    var $block = $('<div class="color-cube '+color+'"></div')//creates div with class of the color value
-    $('.container').append($block);//appends div to DOM
-    var i = $('#'+color).text();//sets i to current number next to counter
-    i++;//increments the value of i
-    $('#'+color).text(i);//updates the text on the DOM
+    $('.container').append($('<div class="color-cube '+($(this).data('color'))+'"></div'));//appends div to DOM
+    $('#'+($(this).data('color'))).text(parseInt($('#' + $(this).data("color")).text())+1);//updates the text on the DOM and increments counter
   })
 });
 
